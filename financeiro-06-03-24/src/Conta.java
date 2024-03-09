@@ -1,3 +1,4 @@
+
 import java.util.Random;
 
 public class Conta {
@@ -10,31 +11,31 @@ public class Conta {
 		this.titular = titular;
 		this.saldo = saldo;
 	}
-
+	
 	Conta(String titular, double saldo) {
 		Random aleatorio = new Random();
-		this.numero = aleatorio.nextInt(10000);
+		this.numero = aleatorio.nextInt(3);
 		this.titular = titular;
 		this.saldo = saldo;
 	}
-
+	
 	Conta(String titular) {
 		Random aleatorio = new Random();
-		this.numero = aleatorio.nextInt(10000);
+		this.numero = aleatorio.nextInt(3);
 		this.titular = titular;
 	}
 
 	boolean deposita(double valor) {
 		if (valor > 0) {
-			saldo = saldo + valor;
+			this.saldo = this.saldo + valor;
 			return true;
 		}
 		return false;
 	}
 
 	boolean saca(double valor) {
-		if (saldo >= valor) {
-			saldo = saldo - valor;
+		if (this.saldo >= valor) {
+			this.saldo = this.saldo - valor;
 			return true;
 		}
 		return false;
@@ -45,10 +46,11 @@ public class Conta {
 			if (destino.deposita(valor)) {
 				return true;
 			} else {
-				this.deposita(valor);
+				this.deposita(valor); //estorno do valor
 				return false;
 			}
 		}
 		return false;
+
 	}
 }
