@@ -13,9 +13,7 @@ public class Banco {
 		this.listaContas = new Conta[10];
 	}
 
-
 	boolean adicionaConta(Conta c) {
-
 		for (int i = 0; i < listaContas.length; i++) {
 			if (listaContas[i] == null) {
 				listaContas[i] = c;
