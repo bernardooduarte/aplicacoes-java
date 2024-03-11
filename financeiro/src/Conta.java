@@ -5,12 +5,12 @@ public class Conta {
 	String titular;
 	double saldo;
 
-	Conta(int numero, String titular, double saldo) {
+	Conta (int numero, String titular, double saldo) {
 		this.numero = numero;
 		this.titular = titular;
 		this.saldo = saldo;
 	}
-
+	
 	Conta(String titular, double saldo) {
 		Random aleatorio = new Random();
 		this.numero = aleatorio.nextInt(10000);
