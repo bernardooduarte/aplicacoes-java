@@ -40,5 +40,5 @@ public class Banco {
 			}
 		}
 		return totalContas;
-	};
+	}
 }
