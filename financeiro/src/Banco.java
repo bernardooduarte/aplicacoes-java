@@ -4,10 +4,10 @@ public class Banco {
 
 	ArrayList<Conta> listaContas;
 
-	Banco(){
+	Banco() {
 		listaContas = new ArrayList<Conta>();
 	}
-	
+
 	void adicionaConta(Conta c) {
 		listaContas.add(c);
 	}
