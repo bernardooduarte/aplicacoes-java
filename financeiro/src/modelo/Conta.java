@@ -1,27 +1,29 @@
+package modelo;
 import java.util.Random;
 
 public class Conta {
-	int numero;
-	String titular;
-	double saldo;
+	public int numero;
+	public double saldo;
+	Cliente cliente;
 
-	Conta(int numero, String titular, double saldo) {
+
+	public Conta(int numero, double saldo, Cliente cliente) {
 		this.numero = numero;
-		this.titular = titular;
+		this.cliente = cliente;
 		this.saldo = saldo;
 	}
-
-	Conta(String titular, double saldo) {
+	
+	public Conta(double saldo, Cliente cliente) {
 		Random aleatorio = new Random();
 		this.numero = aleatorio.nextInt(10000);
-		this.titular = titular;
+		this.cliente = cliente;
 		this.saldo = saldo;
 	}
-
-	Conta(String titular) {
+	
+	public Conta(Cliente cliente) {
 		Random aleatorio = new Random();
 		this.numero = aleatorio.nextInt(10000);
-		this.titular = titular;
+		this.cliente = cliente;
 	}
 
 	boolean deposita(double valor) {

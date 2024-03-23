@@ -1,7 +1,8 @@
+package modelo;
+
 import java.util.ArrayList;
 
 public class Banco {
-
 	ArrayList<Conta> listaContas;
 
 	Banco() {
