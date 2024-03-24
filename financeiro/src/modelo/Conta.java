@@ -1,28 +1,36 @@
 package modelo;
-import java.util.Random;
 
 public class Conta {
-	public int numero;
+	private static double numero = 2024.1;
 	public double saldo;
 	Cliente cliente;
 
+	// formatar o numero
 
-	public Conta(int numero, double saldo, Cliente cliente) {
-		this.numero = numero;
+	public static double getNumero() {
+		numero += 0.1;
+		return numero;
+	}
+
+	public Conta(double numero, double saldo, Cliente cliente) {
+		Conta.numero = numero;
+		this.saldo = saldo;
+		this.cliente = cliente;
+	}
+
+	public Conta(double saldo, Cliente cliente, double numero) {
+		Conta.numero = numero;
 		this.cliente = cliente;
 		this.saldo = saldo;
 	}
-	
+
+	public Conta(Cliente cliente, double numero) {
+		Conta.numero = numero;
+		this.cliente = cliente;
+	}
+
 	public Conta(double saldo, Cliente cliente) {
-		Random aleatorio = new Random();
-		this.numero = aleatorio.nextInt(10000);
-		this.cliente = cliente;
 		this.saldo = saldo;
-	}
-	
-	public Conta(Cliente cliente) {
-		Random aleatorio = new Random();
-		this.numero = aleatorio.nextInt(10000);
 		this.cliente = cliente;
 	}
 

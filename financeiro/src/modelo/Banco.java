@@ -15,7 +15,7 @@ public class Banco {
 
 	Conta getConta(int numeroConta) {
 		for (Conta c : listaContas) {
-			if (c.numero == numeroConta) {
+			if (Conta.getNumero() == numeroConta) {
 				return c;
 			}
 		}
