@@ -33,7 +33,7 @@ public class Conta {
 		this.cliente = cliente;
 	}
 
-	boolean deposita(double valor) {
+	public boolean deposita(double valor) {
 		if (valor > 0) {
 			saldo = saldo + valor;
 			return true;
@@ -41,7 +41,7 @@ public class Conta {
 		return false;
 	}
 
-	boolean saca(double valor) {
+	public boolean saca(double valor) {
 		if (saldo >= valor) {
 			saldo = saldo - valor;
 			return true;
@@ -49,7 +49,7 @@ public class Conta {
 		return false;
 	}
 
-	boolean transfere(Conta destino, double valor) {
+	public boolean transfere(Conta destino, double valor) {
 		if (this.saca(valor)) {
 			if (destino.deposita(valor)) {
 				return true;

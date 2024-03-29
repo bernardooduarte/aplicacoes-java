@@ -22,7 +22,7 @@ public class Banco {
 		return null;
 	}
 
-	int getTotalContas() {
+	public int getTotalContas() {
 		return listaContas.size();
 	}
 }
