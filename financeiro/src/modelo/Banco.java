@@ -13,9 +13,9 @@ public class Banco {
 		listaContas.add(c);
 	}
 
-	Conta getConta(int numeroConta) {
+	Conta getConta(String numeroConta) {
 		for (Conta c : listaContas) {
-			if (Conta.getNumero() == numeroConta) {
+			if (c.getNumero() == numeroConta) {
 				return c;
 			}
 		}

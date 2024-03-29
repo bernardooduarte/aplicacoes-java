@@ -1,35 +1,34 @@
 package modelo;
 
+import java.time.LocalDate;
+
 public class Conta {
-	private static double numero = 2024.1;
+	private String numero;
 	public double saldo;
 	Cliente cliente;
-
-	// formatar o numero
-
-	public static double getNumero() {
-		numero += 0.1;
-		return numero;
-	}
-
-	public Conta(double numero, double saldo, Cliente cliente) {
-		Conta.numero = numero;
+	private static int num_seq = 0;
+	private static LocalDate data_atual = LocalDate.of(2024, 3, 29);
+	
+	
+	public Conta(String numero, double saldo, Cliente cliente) {
+		this.numero = geraNumeroConta();
 		this.saldo = saldo;
 		this.cliente = cliente;
 	}
 
-	public Conta(double saldo, Cliente cliente, double numero) {
-		Conta.numero = numero;
+	public Conta(double saldo, Cliente cliente, String numero) {
+		this.numero = geraNumeroConta();
 		this.cliente = cliente;
 		this.saldo = saldo;
 	}
 
-	public Conta(Cliente cliente, double numero) {
-		Conta.numero = numero;
+	public Conta(Cliente cliente, String numero) {
+		this.numero = geraNumeroConta();
 		this.cliente = cliente;
 	}
 
 	public Conta(double saldo, Cliente cliente) {
+		this.numero = geraNumeroConta();
 		this.saldo = saldo;
 		this.cliente = cliente;
 	}
@@ -60,5 +59,26 @@ public class Conta {
 			}
 		}
 		return false;
+	}
+
+	public String getNumero() {
+		return this.numero;
+	}
+
+	public Cliente getCliente() {
+		return this.cliente;
+	}
+	
+	public double getSaldo() {
+		return this.saldo;
+	}
+	
+	private String geraNumeroConta() {
+		if(Conta.data_atual.getYear() != LocalDate.now().getYear()) {
+			Conta.num_seq = 0;
+			Conta.data_atual = LocalDate.now();
+		}
+		Conta.num_seq++;
+		return data_atual.getYear() + "-" + num_seq;
 	}
 }
