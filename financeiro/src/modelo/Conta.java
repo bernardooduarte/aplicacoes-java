@@ -5,11 +5,10 @@ import java.time.LocalDate;
 public class Conta {
 	private String numero;
 	public double saldo;
-	Cliente cliente;
 	private static int num_seq = 0;
 	private static LocalDate data_atual = LocalDate.of(2024, 3, 29);
-	
-	
+	private Cliente cliente;
+
 	public Conta(String numero, double saldo, Cliente cliente) {
 		this.numero = geraNumeroConta();
 		this.saldo = saldo;
@@ -31,6 +30,11 @@ public class Conta {
 		this.numero = geraNumeroConta();
 		this.saldo = saldo;
 		this.cliente = cliente;
+	}
+
+	@Override
+	public String toString() {
+		return cliente.getNome() + " ; " + numero + " ; " + cliente.getTelefone();
 	}
 
 	public boolean deposita(double valor) {
@@ -66,19 +70,31 @@ public class Conta {
 	}
 
 	public Cliente getCliente() {
-		return this.cliente;
+		return new Cliente(this.cliente);
 	}
-	
+
 	public double getSaldo() {
 		return this.saldo;
 	}
-	
+
 	private String geraNumeroConta() {
-		if(Conta.data_atual.getYear() != LocalDate.now().getYear()) {
+		if (Conta.data_atual.getYear() != LocalDate.now().getYear()) {
 			Conta.num_seq = 0;
 			Conta.data_atual = LocalDate.now();
 		}
 		Conta.num_seq++;
 		return data_atual.getYear() + "-" + num_seq;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 }
