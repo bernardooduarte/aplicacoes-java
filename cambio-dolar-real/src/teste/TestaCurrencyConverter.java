@@ -1,6 +1,6 @@
 package teste;
 
-import java.util.Locale;
+import java.util.Locale;	
 import java.util.Scanner;
 
 import modelo.CurrencyConverter;
